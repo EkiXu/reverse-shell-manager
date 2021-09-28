@@ -10,7 +10,8 @@ make
 ## How to Run
 
 ```
+cp config.yaml 
 ./manager
 ```
 
-## Listener
+## For learning only, do not use for illegal purposes.
